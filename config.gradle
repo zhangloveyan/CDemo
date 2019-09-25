@@ -1,0 +1,9 @@
+ext {
+    // 统一所有的配置版本
+    android = [
+
+    ]
+    dependencies = [
+
+    ]
+}
