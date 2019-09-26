@@ -1,9 +1,21 @@
 ext {
     // 统一所有的配置版本
     android = [
+            compileSdkVersion: 29,
+            buildToolsVersion: "29.0.0",
+            minSdkVersion    : 21,
+            targetSdkVersion : 29,
+
 
     ]
     dependencies = [
-
+            // test
+            "junit": 'junit:junit:4.12',
+            "appcompat": 'androidx.appcompat:appcompat:1.1.0',
+            "constraintlayout": 'androidx.constraintlayout:constraintlayout:1.1.3',
+            "runner": 'androidx.test:runner:1.2.0',
+            "espresso": 'androidx.test.espresso:espresso-core:3.2.0',
+            "arouter"         : 'com.alibaba:arouter-api:1.5.0',
+            "arouter-compiler": 'com.alibaba:arouter-compiler:1.2.2',
     ]
 }
