@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.zz.mvp.AppManager;
 
-
 /**
  * @author Zz 张立男
  * @Description BaseMVPActivity mvp基类
@@ -18,7 +17,7 @@ import com.zz.mvp.AppManager;
  * o(＞﹏＜)o
  */
 
-public abstract class BaseMVPActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView {
+public abstract class BaseMvpActivity<P extends BaseMvpPresenter> extends AppCompatActivity implements IBaseView {
 
     protected final String TAG = this.getClass().getSimpleName();
     protected P mPresenter;

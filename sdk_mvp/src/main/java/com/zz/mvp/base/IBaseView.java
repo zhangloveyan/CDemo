@@ -14,4 +14,8 @@ public interface IBaseView {
      * @param msg 要显示的toast消息字符串
      */
     void showToast(String msg);
+
+    void showProgress();
+
+    void hideProgress();
 }

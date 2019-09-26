@@ -35,4 +35,6 @@ dependencies {
     // rxjava
     implementation rootProject.ext.dependencies["rxjava"]
     implementation rootProject.ext.dependencies["rxandroid"]
+
+
 }
