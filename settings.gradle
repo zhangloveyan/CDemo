@@ -1,1 +1,1 @@
-include ':app', ':commonlib', ':home', ':mine'
+include ':app', ':commonlib', ':home', ':mine', ':sdk_http', ':sdk_mvp'
