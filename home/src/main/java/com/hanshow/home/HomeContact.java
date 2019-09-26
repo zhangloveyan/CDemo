@@ -27,6 +27,7 @@ public interface HomeContact {
 
     interface IHomeView extends IView {
 
+        void setBanner(HomeBannerBean bannerBean);
     }
 
     abstract class IHomePresenter extends BasePresenter<IHomeModel, IHomeView> {
