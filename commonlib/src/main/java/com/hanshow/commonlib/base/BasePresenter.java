@@ -3,13 +3,10 @@ package com.hanshow.commonlib.base;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.zz.mvp.base.BaseMvpPresenter;
-import com.zz.mvp.base.IBaseModel;
-import com.zz.mvp.base.IBaseView;
 
 import java.util.UUID;
 
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+
 
 /**
  * @author Zz 张立男
@@ -17,7 +14,7 @@ import okhttp3.RequestBody;
  * @date 2019/9/26 15:09
  * o(＞﹏＜)o
  */
-public abstract class BasePresenter<M extends IBaseModel, V extends IBaseView> extends BaseMvpPresenter<M, V> {
+public abstract class BasePresenter<M extends IModel, V extends IView> extends BaseMvpPresenter<M, V> {
 
     private String clientType = "21";
     private String deviceNum = "1";
@@ -60,15 +57,15 @@ public abstract class BasePresenter<M extends IBaseModel, V extends IBaseView> e
 
     }
 
-    public RequestBody jsonToRequestBody(String json) {
-        return jsonToRequestBody(json, "application/json");
-    }
-
-    public RequestBody jsonToRequestBody(String json, String mediaType) {
-        return RequestBody.create(MediaType.parse(mediaType), json);
-    }
-
-    public <T> RequestBody beanToRequestBody(T data) {
-        return jsonToRequestBody(beanToJson(getRequestBean(data)));
-    }
+//    public RequestBody jsonToRequestBody(String json) {
+//        return jsonToRequestBody(json, "application/json");
+//    }
+//
+//    public RequestBody jsonToRequestBody(String json, String mediaType) {
+//        return RequestBody.create(MediaType.parse(mediaType), json);
+//    }
+//
+//    public <T> RequestBody beanToRequestBody(T data) {
+//        return jsonToRequestBody(beanToJson(getRequestBean(data)));
+//    }
 }

@@ -29,13 +29,13 @@ public abstract class BaseMvpActivity<P extends BaseMvpPresenter> extends AppCom
         //去掉标题栏
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
 
 
         initData();
     }
 
-    private void initData() {
-        setContentView(getLayoutId());
+    public void initData() {
         mPresenter = (P) getPresenter();
         if (mPresenter != null) {
             mPresenter.attachMV(this);

@@ -6,8 +6,9 @@ import android.os.Bundle;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.hanshow.commonlib.constants.Page;
 
-@Route(path = "/mine/main")
+@Route(path = Page.MINE)
 public class MineMainActivity extends AppCompatActivity {
 
     @Override

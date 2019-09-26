@@ -51,4 +51,10 @@ dependencies {
     // 要与compiler匹配使用，均使用最新版可以保证兼容
     implementation rootProject.ext.dependencies["arouter-api"]
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
+
+    // retrofit
+    implementation rootProject.ext.dependencies["retrofit"]
+    implementation rootProject.ext.dependencies["retrofit-adapter-rxjava"]
+
+    implementation rootProject.ext.dependencies["recyclerview"]
 }

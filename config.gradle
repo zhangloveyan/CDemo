@@ -32,5 +32,10 @@ ext {
 
             // gson
             "gson"                       : 'com.google.code.gson:gson:2.8.5',
+
+            "butterknife"                : 'com.jakewharton:butterknife:8.8.1',
+            "butterknife-compiler"       : 'com.jakewharton:butterknife-compiler:8.8.1',
+
+            "recyclerview"               : 'androidx.recyclerview:recyclerview:1.0.0'
     ]
 }

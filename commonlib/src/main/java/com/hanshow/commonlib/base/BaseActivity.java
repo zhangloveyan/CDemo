@@ -21,5 +21,4 @@ public abstract class BaseActivity<P extends BaseMvpPresenter> extends BaseMvpAc
     public void hideProgress() {
 //        LoadingUtils.close();
     }
-
 }

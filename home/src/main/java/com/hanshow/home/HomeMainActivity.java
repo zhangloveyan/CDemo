@@ -1,10 +1,8 @@
 package com.hanshow.home;
 
-import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.hanshow.commonlib.base.BaseActivity;
+import com.hanshow.commonlib.constants.Page;
 
 /**
  * @author Zz 张立男
@@ -12,12 +10,26 @@ import com.alibaba.android.arouter.facade.annotation.Route;
  * @date 2019/9/26 15:21
  * o(＞﹏＜)o
  */
-@Route(path = "/home/main")
-public class HomeMainActivity extends AppCompatActivity {
+@Route(path = Page.HOME)
+public class HomeMainActivity extends BaseActivity<HomePresenter> implements HomeContact.IHomeView {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_main);
+    protected int getLayoutId() {
+        return R.layout.activity_home_main;
+    }
+
+    @Override
+    protected void init() {
+
+    }
+
+    @Override
+    protected HomePresenter getPresenter() {
+        return new HomePresenter();
+    }
+
+    @Override
+    public void showToast(String msg) {
+
     }
 }

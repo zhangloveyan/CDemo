@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.hanshow.commonlib.constants.Page;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
         tvHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/home/main").navigation();
+                ARouter.getInstance().build(Page.HOME).navigation();
             }
         });
 
         tvMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ARouter.getInstance().build("/mine/main").navigation();
+                ARouter.getInstance().build(Page.MINE).navigation();
             }
         });
     }
