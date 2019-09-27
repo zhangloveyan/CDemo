@@ -26,6 +26,29 @@ public class BaseApplication extends Application {
                 .baseUrl("https://www.wanandroid.com/")
                 .debug(BuildConfig.DEBUG)
                 .init(this);
+
+        modulesApplicationInit();
+    }
+
+    /**
+     * 初始化子类 application 的东西
+     */
+    private void modulesApplicationInit() {
+        for (String model : ModelConfig.MODEL_APP_LIST) {
+            try {
+                Class<?> aClass = Class.forName(model);
+                Object obj = aClass.newInstance();
+                if (obj instanceof ApplicationImpl) {
+                    ((ApplicationImpl) obj).onCreate(this);
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void initARouter() {

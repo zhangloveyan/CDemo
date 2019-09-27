@@ -25,6 +25,16 @@ android {
                 arguments = [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
+        sourceSets {
+            main{
+                if (!isNeedMineModule.toBoolean()){
+                    manifest.srcFile 'src/main/app/AndroidManifest.xml'
+                }else{
+                    manifest.srcFile 'src/main/model/AndroidManifest.xml'
+                }
+            }
+        }
     }
 
     buildTypes {
