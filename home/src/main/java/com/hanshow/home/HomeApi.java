@@ -2,6 +2,8 @@ package com.hanshow.home;
 
 import com.hanshow.commonlib.base.ResultBean;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -12,8 +14,8 @@ public interface HomeApi {
      *
      * @return
      */
-    @GET("https://www.wanandroid.com/banner/json")
-    Observable<ResultBean<HomeBannerBean>> getHomeBanner();
+    @GET("banner/json")
+    Observable<ResultBean<List<HomeBannerBean>>> getHomeBanner();
 
     /**
      * 首页列表

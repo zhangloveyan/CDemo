@@ -5,6 +5,8 @@ import com.hanshow.commonlib.base.IModel;
 import com.hanshow.commonlib.base.IView;
 import com.hanshow.commonlib.base.ResultBean;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 
 public interface HomeContact {
@@ -14,7 +16,7 @@ public interface HomeContact {
          *
          * @return
          */
-        Observable<ResultBean<HomeBannerBean>> getHomeBanner();
+        Observable<ResultBean<List<HomeBannerBean>>> getHomeBanner();
 
         /**
          * 首页列表
@@ -27,7 +29,9 @@ public interface HomeContact {
 
     interface IHomeView extends IView {
 
-        void setBanner(HomeBannerBean bannerBean);
+        void setBanner(List<HomeBannerBean> bannerBean);
+
+        void setList(HomeListBean listBean);
     }
 
     abstract class IHomePresenter extends BasePresenter<IHomeModel, IHomeView> {

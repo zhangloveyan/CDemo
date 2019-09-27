@@ -3,6 +3,8 @@ package com.hanshow.commonlib.base;
 import android.app.Application;
 
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.hanshow.commonlib.BuildConfig;
+import com.zz.http.RetrofitHelper;
 
 /**
  * @author Zz 张立男
@@ -18,8 +20,12 @@ public class BaseApplication extends Application {
         super.onCreate();
         application = this;
 
-
         initARouter();
+
+        RetrofitHelper.getInstance()
+                .baseUrl("https://www.wanandroid.com/")
+                .debug(BuildConfig.DEBUG)
+                .init(this);
     }
 
     private void initARouter() {

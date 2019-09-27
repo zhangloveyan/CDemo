@@ -1,126 +1,88 @@
 package com.hanshow.home;
 
-import java.util.List;
-
 public class HomeBannerBean {
 
     /**
-     * data : [{"desc":"Android高级进阶直播课免费学习","id":23,"imagePath":"https://wanandroid.com/blogimgs/0b712568-6203-4a03-b475-ff55e68d89e8.jpeg","isVisible":1,"order":0,"title":"Android高级进阶直播课免费学习","type":0,"url":"https://url.163.com/4bj"},{"desc":"","id":6,"imagePath":"https://www.wanandroid.com/blogimgs/62c1bd68-b5f3-4a3c-a649-7ca8c7dfabe6.png","isVisible":1,"order":1,"title":"我们新增了一个常用导航Tab~","type":1,"url":"http://www.wanandroid.com/navi"},{"desc":"","id":20,"imagePath":"https://www.wanandroid.com/blogimgs/90c6cc12-742e-4c9f-b318-b912f163b8d0.png","isVisible":1,"order":2,"title":"flutter 中文社区 ","type":1,"url":"https://flutter.cn/"},{"desc":"一起来做个App吧","id":10,"imagePath":"https://www.wanandroid.com/blogimgs/50c115c2-cf6c-4802-aa7b-a4334de444cd.png","isVisible":1,"order":11,"title":"一起来做个App吧","type":1,"url":"http://www.wanandroid.com/blog/show/2"}]
-     * errorCode : 0
-     * errorMsg :
+     * desc : Android高级进阶直播课免费学习
+     * id : 23
+     * imagePath : https://wanandroid.com/blogimgs/0b712568-6203-4a03-b475-ff55e68d89e8.jpeg
+     * isVisible : 1
+     * order : 0
+     * title : Android高级进阶直播课免费学习
+     * type : 0
+     * url : https://url.163.com/4bj
      */
 
-    private int errorCode;
-    private String errorMsg;
-    private List<DataBean> data;
+    private String desc;
+    private int id;
+    private String imagePath;
+    private int isVisible;
+    private int order;
+    private String title;
+    private int type;
+    private String url;
 
-    public int getErrorCode() {
-        return errorCode;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setErrorCode(int errorCode) {
-        this.errorCode = errorCode;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public String getErrorMsg() {
-        return errorMsg;
+    public int getId() {
+        return id;
     }
 
-    public void setErrorMsg(String errorMsg) {
-        this.errorMsg = errorMsg;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public List<DataBean> getData() {
-        return data;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setData(List<DataBean> data) {
-        this.data = data;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
-    public static class DataBean {
-        /**
-         * desc : Android高级进阶直播课免费学习
-         * id : 23
-         * imagePath : https://wanandroid.com/blogimgs/0b712568-6203-4a03-b475-ff55e68d89e8.jpeg
-         * isVisible : 1
-         * order : 0
-         * title : Android高级进阶直播课免费学习
-         * type : 0
-         * url : https://url.163.com/4bj
-         */
+    public int getIsVisible() {
+        return isVisible;
+    }
 
-        private String desc;
-        private int id;
-        private String imagePath;
-        private int isVisible;
-        private int order;
-        private String title;
-        private int type;
-        private String url;
+    public void setIsVisible(int isVisible) {
+        this.isVisible = isVisible;
+    }
 
-        public String getDesc() {
-            return desc;
-        }
+    public int getOrder() {
+        return order;
+    }
 
-        public void setDesc(String desc) {
-            this.desc = desc;
-        }
+    public void setOrder(int order) {
+        this.order = order;
+    }
 
-        public int getId() {
-            return id;
-        }
+    public String getTitle() {
+        return title;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-        public String getImagePath() {
-            return imagePath;
-        }
+    public int getType() {
+        return type;
+    }
 
-        public void setImagePath(String imagePath) {
-            this.imagePath = imagePath;
-        }
+    public void setType(int type) {
+        this.type = type;
+    }
 
-        public int getIsVisible() {
-            return isVisible;
-        }
+    public String getUrl() {
+        return url;
+    }
 
-        public void setIsVisible(int isVisible) {
-            this.isVisible = isVisible;
-        }
-
-        public int getOrder() {
-            return order;
-        }
-
-        public void setOrder(int order) {
-            this.order = order;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public void setTitle(String title) {
-            this.title = title;
-        }
-
-        public int getType() {
-            return type;
-        }
-
-        public void setType(int type) {
-            this.type = type;
-        }
-
-        public String getUrl() {
-            return url;
-        }
-
-        public void setUrl(String url) {
-            this.url = url;
-        }
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
