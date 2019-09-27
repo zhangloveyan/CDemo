@@ -5,9 +5,15 @@
     android:layout_height="match_parent"
     tools:context=".MineMainActivity">
 
-    <TextView
-        android:id="@+id/textView"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_mine"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="mine_main" />
+        android:layout_height="match_parent">
+
+
+        <androidx.viewpager.widget.PagerTitleStrip
+            android:id="@+id/pts_mine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.viewpager.widget.ViewPager>
 </LinearLayout>
