@@ -27,7 +27,7 @@ public abstract class BaseMvpActivity<P extends BaseMvpPresenter> extends AppCom
         //限制页面竖屏显示
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         //去掉标题栏
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
 
