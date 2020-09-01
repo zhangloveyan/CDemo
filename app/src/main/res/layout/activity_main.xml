@@ -6,20 +6,4 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tv_app_home"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="#999999"
-        android:gravity="center"
-        android:text="home" />
-
-    <TextView
-        android:id="@+id/tv_app_mine"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:background="#999999"
-        android:gravity="center"
-        android:text="mine" />
 </LinearLayout>

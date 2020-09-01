@@ -5,122 +5,172 @@ import java.util.List;
 public class MineBean {
 
     /**
-     * error : false
-     * results : [{"_id":"5ccdbc219d212239df927a93","createdAt":"2019-05-04T16:21:53.523Z","desc":"2019-05-05","publishedAt":"2019-05-04T16:21:59.733Z","source":"web","type":"福利","url":"http://ww1.sinaimg.cn/large/0065oQSqly1g2pquqlp0nj30n00yiq8u.jpg","used":true,"who":"lijinshanmx"},{"_id":"5cc43919fc3326376038d233","createdAt":"2019-04-27T19:12:25.536Z","desc":"2019-04-27","publishedAt":"2019-04-27T19:12:51.865Z","source":"web","type":"福利","url":"https://ww1.sinaimg.cn/large/0065oQSqly1g2hekfwnd7j30sg0x4djy.jpg","used":true,"who":"lijinshanmx"},{"_id":"5c6a4ae99d212226776d3256","createdAt":"2019-02-18T06:04:25.571Z","desc":"2019-02-18","publishedAt":"2019-04-10T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqly1g0ajj4h6ndj30sg11xdmj.jpg","used":true,"who":"lijinshanmx"},{"_id":"5c2dabdb9d21226e068debf9","createdAt":"2019-01-03T06:29:47.895Z","desc":"2019-01-03","publishedAt":"2019-01-03T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqly1fytdr77urlj30sg10najf.jpg","used":true,"who":"lijinshanmx"},{"_id":"5c25db189d21221e8ada8664","createdAt":"2018-12-28T08:13:12.688Z","desc":"2018-12-28","publishedAt":"2018-12-28T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqly1fymj13tnjmj30r60zf79k.jpg","used":true,"who":"lijinshanmx"},{"_id":"5c12216d9d21223f5a2baea2","createdAt":"2018-12-13T09:07:57.2Z","desc":"2018-12-13","publishedAt":"2018-12-13T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqgy1fy58bi1wlgj30sg10hguu.jpg","used":true,"who":"lijinshanmx"},{"_id":"5bfe1a5b9d2122309624cbb7","createdAt":"2018-11-28T04:32:27.338Z","desc":"2018-11-28","publishedAt":"2018-11-28T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqgy1fxno2dvxusj30sf10nqcm.jpg","used":true,"who":"lijinshanmx"},{"_id":"5bf22fd69d21223ddba8ca25","createdAt":"2018-11-19T03:36:54.950Z","desc":"2018-11-19","publishedAt":"2018-11-19T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg","used":true,"who":"lijinshanmx"},{"_id":"5be14edb9d21223dd50660f8","createdAt":"2018-11-06T08:20:43.656Z","desc":"2018-11-06","publishedAt":"2018-11-06T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqgy1fwyf0wr8hhj30ie0nhq6p.jpg","used":true,"who":"lijinshanmx"},{"_id":"5bcd71979d21220315c663fc","createdAt":"2018-10-22T06:43:35.440Z","desc":"2018-10-22","publishedAt":"2018-10-22T00:00:00.0Z","source":"web","type":"福利","url":"https://ws1.sinaimg.cn/large/0065oQSqgy1fwgzx8n1syj30sg15h7ew.jpg","used":true,"who":"lijinshanmx"}]
+     * data : {"admin":false,"chapterTops":[],"coinCount":0,"collectIds":[],"email":"","icon":"","id":75012,"nickname":"zhanglinan","password":"","publicName":"zhanglinan","token":"","type":0,"username":"zhanglinan"}
+     * errorCode : 0
+     * errorMsg :
      */
 
-    private boolean error;
-    private List<ResultsBean> results;
+    private DataBean data;
+    private int errorCode;
+    private String errorMsg;
 
-    public boolean isError() {
-        return error;
+    public DataBean getData() {
+        return data;
     }
 
-    public void setError(boolean error) {
-        this.error = error;
+    public void setData(DataBean data) {
+        this.data = data;
     }
 
-    public List<ResultsBean> getResults() {
-        return results;
+    public int getErrorCode() {
+        return errorCode;
     }
 
-    public void setResults(List<ResultsBean> results) {
-        this.results = results;
+    public void setErrorCode(int errorCode) {
+        this.errorCode = errorCode;
     }
 
-    public static class ResultsBean {
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
+    public void setErrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
+    }
+
+    public static class DataBean {
         /**
-         * _id : 5ccdbc219d212239df927a93
-         * createdAt : 2019-05-04T16:21:53.523Z
-         * desc : 2019-05-05
-         * publishedAt : 2019-05-04T16:21:59.733Z
-         * source : web
-         * type : 福利
-         * url : http://ww1.sinaimg.cn/large/0065oQSqly1g2pquqlp0nj30n00yiq8u.jpg
-         * used : true
-         * who : lijinshanmx
+         * admin : false
+         * chapterTops : []
+         * coinCount : 0
+         * collectIds : []
+         * email :
+         * icon :
+         * id : 75012
+         * nickname : zhanglinan
+         * password :
+         * publicName : zhanglinan
+         * token :
+         * type : 0
+         * username : zhanglinan
          */
 
-        private String _id;
-        private String createdAt;
-        private String desc;
-        private String publishedAt;
-        private String source;
-        private String type;
-        private String url;
-        private boolean used;
-        private String who;
+        private boolean admin;
+        private int coinCount;
+        private String email;
+        private String icon;
+        private int id;
+        private String nickname;
+        private String password;
+        private String publicName;
+        private String token;
+        private int type;
+        private String username;
+        private List<?> chapterTops;
+        private List<?> collectIds;
 
-        public String get_id() {
-            return _id;
+        public boolean isAdmin() {
+            return admin;
         }
 
-        public void set_id(String _id) {
-            this._id = _id;
+        public void setAdmin(boolean admin) {
+            this.admin = admin;
         }
 
-        public String getCreatedAt() {
-            return createdAt;
+        public int getCoinCount() {
+            return coinCount;
         }
 
-        public void setCreatedAt(String createdAt) {
-            this.createdAt = createdAt;
+        public void setCoinCount(int coinCount) {
+            this.coinCount = coinCount;
         }
 
-        public String getDesc() {
-            return desc;
+        public String getEmail() {
+            return email;
         }
 
-        public void setDesc(String desc) {
-            this.desc = desc;
+        public void setEmail(String email) {
+            this.email = email;
         }
 
-        public String getPublishedAt() {
-            return publishedAt;
+        public String getIcon() {
+            return icon;
         }
 
-        public void setPublishedAt(String publishedAt) {
-            this.publishedAt = publishedAt;
+        public void setIcon(String icon) {
+            this.icon = icon;
         }
 
-        public String getSource() {
-            return source;
+        public int getId() {
+            return id;
         }
 
-        public void setSource(String source) {
-            this.source = source;
+        public void setId(int id) {
+            this.id = id;
         }
 
-        public String getType() {
+        public String getNickname() {
+            return nickname;
+        }
+
+        public void setNickname(String nickname) {
+            this.nickname = nickname;
+        }
+
+        public String getPassword() {
+            return password;
+        }
+
+        public void setPassword(String password) {
+            this.password = password;
+        }
+
+        public String getPublicName() {
+            return publicName;
+        }
+
+        public void setPublicName(String publicName) {
+            this.publicName = publicName;
+        }
+
+        public String getToken() {
+            return token;
+        }
+
+        public void setToken(String token) {
+            this.token = token;
+        }
+
+        public int getType() {
             return type;
         }
 
-        public void setType(String type) {
+        public void setType(int type) {
             this.type = type;
         }
 
-        public String getUrl() {
-            return url;
+        public String getUsername() {
+            return username;
         }
 
-        public void setUrl(String url) {
-            this.url = url;
+        public void setUsername(String username) {
+            this.username = username;
         }
 
-        public boolean isUsed() {
-            return used;
+        public List<?> getChapterTops() {
+            return chapterTops;
         }
 
-        public void setUsed(boolean used) {
-            this.used = used;
+        public void setChapterTops(List<?> chapterTops) {
+            this.chapterTops = chapterTops;
         }
 
-        public String getWho() {
-            return who;
+        public List<?> getCollectIds() {
+            return collectIds;
         }
 
-        public void setWho(String who) {
-            this.who = who;
+        public void setCollectIds(List<?> collectIds) {
+            this.collectIds = collectIds;
         }
     }
 }

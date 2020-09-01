@@ -27,7 +27,7 @@ import java.util.Set;
  */
 public class SpUtils {
     private static SharedPreferences sp;
-    private static String mPreferencesName = "share_preference_default";
+    private static String mPreferencesName = "share_default";
 
     /**
      * 设置preferencesName

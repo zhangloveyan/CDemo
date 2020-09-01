@@ -3,22 +3,6 @@ package com.hanshow.mine;
 import io.reactivex.functions.Consumer;
 
 public class MinePresenter extends MineContact.IMinePresenter {
-    @Override
-    public void getWelfare(int size, int page) {
-        mRxManager.register(mIModel.getWelfare().subscribe(new Consumer<MineBean>() {
-            @Override
-            public void accept(MineBean mineBean) throws Exception {
-                if (!mineBean.isError()) {
-                    mIView.setWelfare(mineBean.getResults());
-                }
-            }
-        }, new Consumer<Throwable>() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-
-            }
-        }));
-    }
 
     @Override
     protected MineContact.IMineModel getModel() {
@@ -27,6 +11,24 @@ public class MinePresenter extends MineContact.IMinePresenter {
 
     @Override
     public void onStart() {
-        getWelfare(20, 1);
+    }
+
+    @Override
+    public void login(String userName, String password) {
+        mRxManager.register(mIModel.login(userName, password).subscribe(new Consumer<MineBean>() {
+            @Override
+            public void accept(MineBean bean) throws Exception {
+                if (bean.getErrorCode() == 0) {
+                    mIView.login(bean.getData());
+                } else {
+                    mIView.showToast("登录失败");
+                }
+            }
+        }, new Consumer<Throwable>() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+
+            }
+        }));
     }
 }

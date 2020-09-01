@@ -1,20 +1,17 @@
 package com.hanshow.mine;
 
-import com.zz.http.RetrofitHelper;
-
 import io.reactivex.Observable;
-import retrofit2.http.GET;
-import retrofit2.http.Headers;
+import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface MineApi {
-    String MineHost = "http://gank.io/";
 
     /**
-     * 获取banner数据
+     * 登录
      *
      * @return
      */
-    @Headers(RetrofitHelper.URL_HOST + MineHost)
-    @GET("api/data/%E7%A6%8F%E5%88%A9/20/1")
-    Observable<MineBean> getWelfare();
+    @POST("user/login")
+    Observable<MineBean> login(@Query("username") String userName,
+                               @Query("password") String password);
 }

@@ -23,6 +23,6 @@ public interface HomeApi {
      * @param page
      * @return
      */
-    @GET("https://www.wanandroid.com/article/list/{page}/json")
+    @GET("article/list/{page}/json")
     Observable<ResultBean<HomeListBean>> getHomeList(@Path("page") int page);
 }

@@ -18,21 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         ARouter.getInstance().inject(this);
 
-        TextView tvHome = findViewById(R.id.tv_app_home);
-        TextView tvMine = findViewById(R.id.tv_app_mine);
-
-        tvHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ARouter.getInstance().build(Page.HOME).navigation();
-            }
-        });
-
-        tvMine.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ARouter.getInstance().build(Page.MINE).navigation();
-            }
-        });
+        ARouter.getInstance().build(Page.MINE).navigation();
+        finish();
     }
 }

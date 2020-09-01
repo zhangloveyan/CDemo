@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">commonlib</string>
+    <string name="app_name">CDemo</string>
+    <string name="text_welcome">欢迎登录！</string>
+    <string name="text_username">用户名：</string>
+    <string name="edit_hint_input_name">请输入用户名称</string>
+    <string name="edit_hint_input_password">请输入用户密码</string>
+    <string name="bt_login">登录</string>
+    <string name="tv_login_password">密 码：</string>
 </resources>

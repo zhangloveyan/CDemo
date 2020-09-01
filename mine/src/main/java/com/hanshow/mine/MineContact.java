@@ -4,8 +4,6 @@ import com.hanshow.commonlib.base.BasePresenter;
 import com.hanshow.commonlib.base.IModel;
 import com.hanshow.commonlib.base.IView;
 
-import java.util.List;
-
 import io.reactivex.Observable;
 
 public interface MineContact {
@@ -15,12 +13,12 @@ public interface MineContact {
          *
          * @return
          */
-        Observable<MineBean> getWelfare();
+        Observable<MineBean> login(String userName, String password);
     }
 
     interface IMineView extends IView {
 
-        void setWelfare(List<MineBean.ResultsBean> results);
+        void login(MineBean.DataBean data);
     }
 
     abstract class IMinePresenter extends BasePresenter<IMineModel, IMineView> {
@@ -30,7 +28,7 @@ public interface MineContact {
          *
          * @return
          */
-        public abstract void getWelfare(int size, int page);
+        public abstract void login(String userName, String password);
 
     }
 }

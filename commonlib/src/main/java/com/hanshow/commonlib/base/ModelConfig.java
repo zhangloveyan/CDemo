@@ -10,6 +10,6 @@ public class ModelConfig {
     public static final String[] MODEL_APP_LIST =
             {
                     "com.hanshow.mine.MineApplication",
-                    "com.kun.moduleb.ModuleB"
+                    "com.hanshow.home.HomeApplication"
             };
 }
