@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.hanshow.project.UserBean" />
+
+        <variable
+            name="click"
+            type="com.hanshow.project.ClickPresenter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ProjectMainActivity">
+
+        <TextView
+            android:id="@+id/rv_project_userName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.userName}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rv_project_userId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{user.userId}"
+            app:layout_constraintTop_toBottomOf="@+id/rv_project_userName" />
+
+        <TextView
+            android:id="@+id/tv_click"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->click.onClick(v)}"
+            app:layout_constraintTop_toBottomOf="@+id/rv_project_userId" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_project"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_click" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

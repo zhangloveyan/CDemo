@@ -1,1 +1,2 @@
-include ':app', ':commonlib', ':home', ':mine', ':sdk_http', ':sdk_mvp'
+include ':project'
+include ':app', ':commonlib', ':home', ':mine', ':mine',':sdk_http', ':sdk_mvp'

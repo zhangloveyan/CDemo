@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hanshow.project">
+
+    <application>
+        <activity android:name=".ProjectMainActivity">
+        </activity>
+    </application>
+
+</manifest>

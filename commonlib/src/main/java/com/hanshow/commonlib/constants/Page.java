@@ -9,4 +9,5 @@ package com.hanshow.commonlib.constants;
 public class Page {
     public static final String HOME = "/home/main";
     public static final String MINE = "/mine/main";
+    public static final String PROJECT = "/project/main";
 }

@@ -1,5 +1,6 @@
 package com.hanshow.home;
 
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 import com.bumptech.glide.Glide;
 import com.hanshow.commonlib.base.BaseActivity;
 import com.hanshow.commonlib.constants.Page;
@@ -36,8 +38,14 @@ public class HomeMainActivity extends BaseActivity<HomePresenter> implements Hom
     protected void init() {
         mRvHome = findViewById(R.id.rv_home);
         mVpHome = findViewById(R.id.vp_home);
-
+        ARouter.getInstance().inject(this);
         initRv();
+
+        findViewById(R.id.bt_click).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ARouter.getInstance().build(Page.PROJECT).navigation();            }
+        });
     }
 
     private void initRv() {
