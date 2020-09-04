@@ -21,6 +21,8 @@ class ProjectMainActivity : AppCompatActivity(), ClickPresenter {
 
         mViewBinding = DataBindingUtil.setContentView(this, R.layout.activity_project_main)
 
+        mViewBinding.click = this
+
         userBean = UserBean()
         userBean.userId = "213"
         userBean.userName = "守护"
@@ -30,6 +32,7 @@ class ProjectMainActivity : AppCompatActivity(), ClickPresenter {
 
 
     override fun onClick(v: View?) {
+        Toast.makeText(this, "点击", Toast.LENGTH_SHORT).show();
         if (v != null) {
             if (v.id == R.id.tv_click) {
                 userBean.userId = "321"

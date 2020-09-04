@@ -12,6 +12,7 @@
         <variable
             name="click"
             type="com.hanshow.project.ClickPresenter" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -33,11 +34,13 @@
             android:text="@{user.userId}"
             app:layout_constraintTop_toBottomOf="@+id/rv_project_userName" />
 
-        <TextView
+        <Button
             android:id="@+id/tv_click"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{(v)->click.onClick(v)}"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:onClick="@{(view)->click.onClick(view)}"
+            android:text="修改"
             app:layout_constraintTop_toBottomOf="@+id/rv_project_userId" />
 
         <androidx.recyclerview.widget.RecyclerView
