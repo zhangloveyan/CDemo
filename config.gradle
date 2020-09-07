@@ -20,7 +20,7 @@ ext {
             "arouter-compiler"           : 'com.alibaba:arouter-compiler:1.2.2',
 
             // retrofit
-            "retrofit"                   : 'com.squareup.retrofit2:retrofit:2.5.0',
+            "retrofit"                   : 'com.squareup.retrofit2:retrofit:2.6.0',
             "retrofit-adapter-rxjava"    : 'com.squareup.retrofit2:adapter-rxjava2:2.5.0', // 必要依赖，和Rxjava结合必须用到，下面会提到
             "retrofit-converter-gson"    : 'com.squareup.retrofit2:converter-gson:2.5.0', // 必要依赖，解析json字符所用
 

@@ -1,29 +1,28 @@
 package com.hanshow.project
 
-import android.os.SystemClock
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.util.*
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
 class ProjectModel : ViewModel() {
-    private val mElapsedTime = MutableLiveData<Long>()
-    private val mInitialTime: Long = SystemClock.elapsedRealtime()
-    val elapsedTime: LiveData<Long>
-        get() = mElapsedTime
+    var mLiveProjectBean = MutableLiveData<ProjectBean>()
+    var mLiveListProjectBean = MutableLiveData<MutableList<DataX>>()
+    var projectRepository = ProjectRepository()
 
-    companion object {
-        private const val ONE_SECOND = 1000
-    }
 
-    init {
-        val timer = Timer()
-        timer.scheduleAtFixedRate(object : TimerTask() {
-            override fun run() {
-                val newValue = (SystemClock.elapsedRealtime() - mInitialTime) / 1000
-                // setValue() cannot be called from a background thread so post to main thread.
-                mElapsedTime.postValue(newValue)
+    fun getProject() {
+        viewModelScope.launch {
+            val projectBean = projectRepository.getProject(294)
+            if (projectBean.errorCode == 0) {
+                mLiveProjectBean.postValue(projectBean)
+
+                var data = projectBean.data.datas
+                mLiveListProjectBean.postValue(data)
+            } else {
+
             }
-        }, ONE_SECOND.toLong(), ONE_SECOND.toLong())
+        }
     }
 }
+

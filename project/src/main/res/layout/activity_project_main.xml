@@ -6,11 +6,7 @@
     <data>
 
         <variable
-            name="user"
-            type="com.hanshow.project.UserBean" />
-
-        <variable
-            name="click"
+            name="clickPresenter"
             type="com.hanshow.project.ClickPresenter" />
 
     </data>
@@ -20,34 +16,31 @@
         android:layout_height="match_parent"
         tools:context=".ProjectMainActivity">
 
-        <TextView
-            android:id="@+id/rv_project_userName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{user.userName}"
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:onClick="@{(view)->clickPresenter.onClick(view)}"
+            android:src="@mipmap/icon_back"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/rv_project_userId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@{user.userId}"
-            app:layout_constraintTop_toBottomOf="@+id/rv_project_userName" />
-
-        <Button
-            android:id="@+id/tv_click"
+            android:id="@+id/rv_project_userName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
-            android:onClick="@{(view)->click.onClick(view)}"
-            android:text="修改"
-            app:layout_constraintTop_toBottomOf="@+id/rv_project_userId" />
+            android:text="项目数据"
+            android:textColor="@color/text_333"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_back"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_project"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/tv_click" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_project_userName" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
