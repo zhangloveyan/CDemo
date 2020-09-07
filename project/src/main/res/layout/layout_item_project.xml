@@ -27,7 +27,7 @@
             android:id="@+id/tv_item_project_zan"
             android:layout_width="40dp"
             android:layout_height="wrap_content"
-            android:text="@{bean.prefix}"
+            android:text="@{@string/tv_project_zan+bean.zan}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

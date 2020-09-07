@@ -6,4 +6,5 @@
     <string name="edit_hint_input_password">请输入用户密码</string>
     <string name="bt_login">登录</string>
     <string name="tv_login_password">密 码：</string>
+    <string name="tv_project_zan">赞</string>
 </resources>
