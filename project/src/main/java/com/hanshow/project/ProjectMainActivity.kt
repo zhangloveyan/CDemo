@@ -2,6 +2,8 @@ package com.hanshow.project
 
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
@@ -21,10 +23,13 @@ class ProjectMainActivity : AppCompatActivity(), ClickPresenter {
     private lateinit var adapter: ProjectAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         super.onCreate(savedInstanceState)
         ARouter.getInstance().inject(this)
 
         mViewBinding = DataBindingUtil.setContentView(this, R.layout.activity_project_main)
+        mViewBinding.clickPresenter = this
+
         projectModel = ViewModelProvider(this).get(ProjectModel::class.java)
 
         mViewBinding.rvProject.layoutManager = LinearLayoutManager(this)

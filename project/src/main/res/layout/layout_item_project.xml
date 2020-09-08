@@ -11,13 +11,19 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/tv_item_project_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:maxLines="1"
             android:text="@{bean.title}"
+            android:textColor="@color/text_333"
+            android:textSize="16sp"
             app:layout_constraintEnd_toStartOf="@+id/tv_item_project_zan"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +34,9 @@
             android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:text="@{@string/tv_project_zan+bean.zan}"
+            android:textColor="@color/text_blue"
+            android:textSize="14sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_item_project_title"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,10 +44,23 @@
             android:id="@+id/tv_item_project_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="20dp"
+            android:maxLines="2"
             android:text="@{bean.desc}"
+            android:textColor="@color/text_999"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_item_project_title" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="10dp"
+            android:background="@color/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_item_project_description" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
