@@ -32,14 +32,28 @@ class ProjectMainActivity : AppCompatActivity(), ClickPresenter {
 
         projectModel = ViewModelProvider(this).get(ProjectModel::class.java)
 
-        mViewBinding.rvProject.layoutManager = LinearLayoutManager(this)
+        initRv()
 
         projectModel.mLiveListProjectBean.observe(this, Observer {
-            adapter = ProjectAdapter(this, it)
-            mViewBinding.rvProject.adapter = adapter
+            adapter.replace(it)
         })
 
         projectModel.getProject()
+    }
+
+    private fun initRv() {
+        adapter = ProjectAdapter(this)
+        mViewBinding.rvProject.adapter = adapter
+        mViewBinding.rvProject.layoutManager = LinearLayoutManager(this)
+
+        adapter.mListener = object : RecyclerClickListener<DataX> {
+            override fun onClick(bean: DataX, position: Int) {
+                Toast.makeText(this@ProjectMainActivity, bean.link, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onLongClick(bean: DataX, position: Int) {
+            }
+        }
     }
 
     override fun onClick(v: View) {

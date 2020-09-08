@@ -8,10 +8,11 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.hanshow.project.databinding.LayoutItemProjectBinding
 
-class ProjectAdapter(context: Context, data: MutableList<DataX>) : RecyclerView.Adapter<ProjectAdapter.ViewHolder>() {
+class ProjectAdapter(context: Context) : RecyclerView.Adapter<ProjectAdapter.ViewHolder>() {
 
-    private val mContext = context;
-    private var mDataX = data;
+    private val mContext = context
+    private var mDataX: ArrayList<DataX> = ArrayList()
+    lateinit var mListener: RecyclerClickListener<DataX>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val bind = DataBindingUtil.inflate<LayoutItemProjectBinding>(
@@ -29,14 +30,19 @@ class ProjectAdapter(context: Context, data: MutableList<DataX>) : RecyclerView.
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setData(mDataX[position], mContext)
+        holder.mBinding.bean = mDataX[position]
+        holder.mBinding.root.setOnClickListener(View.OnClickListener {
+            mListener.onClick(mDataX[position], position)
+        })
     }
 
+    fun replace(list: List<DataX>) {
+        mDataX.clear()
+        mDataX.addAll(list)
+        notifyDataSetChanged()
+    }
 
-    class ViewHolder(itemView: View, binding: LayoutItemProjectBinding) : RecyclerView.ViewHolder(itemView) {
-        private val mBinding = binding
-        fun setData(dataX: DataX, mContext: Context) {
-            mBinding.bean = dataX
-        }
+    inner class ViewHolder(itemView: View, binding: LayoutItemProjectBinding) : RecyclerView.ViewHolder(itemView) {
+        internal val mBinding = binding
     }
 }
