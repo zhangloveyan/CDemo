@@ -9,7 +9,7 @@ open class BaseViewModel : ViewModel() {
     val toastMsg: MutableLiveData<String> = MutableLiveData()
     val needLogin: MutableLiveData<Boolean> = MutableLiveData()
 
-    open class UiState<T>(
+    open class UiState(
             /**
              * 加载框
              */
@@ -35,12 +35,12 @@ open class BaseViewModel : ViewModel() {
             var isEnd: Boolean = false
     )
 
-    fun <T : Any> NetResult<T>.checkResult(success: (T, String) -> Unit,
+    fun <T : Any> NetResult<T>.checkResult(success: (T) -> Unit,
                                            error: ((String) -> Unit)? = null,
                                            exception: ((Exception) -> Unit)? = null) {
         when (this) {
             is NetResult.Success -> {
-                success(this.data, this.msg)
+                success(this.data)
             }
             is NetResult.ErrorMsg -> {
                 error?.let { it(this.errorMsg) }

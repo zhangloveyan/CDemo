@@ -29,7 +29,7 @@ open class BaseRepository {
         return coroutineScope {
             if (response.code == 0) {
                 successBlock?.let { it() }
-                NetResult.Success(response.data, response.message)
+                NetResult.Success(response.data)
             } else {
                 errorBlock?.let { it() }
                 NetResult.ErrorMsg(response.message)

@@ -14,9 +14,8 @@ class ProjectModel : BaseViewModel() {
         viewModelScope.launch {
             val result = projectRepository.getProject(294)
 
-            result.checkResult({ projectBean, msg ->
-                mLiveListProjectBean.postValue(projectBean.datas)
-                toastMsg.postValue(msg)
+            result.checkResult({
+                mLiveListProjectBean.postValue(it.datas)
             }, {
                 toastMsg.postValue(it)
             }, {
