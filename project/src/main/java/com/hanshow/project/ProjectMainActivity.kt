@@ -38,6 +38,9 @@ class ProjectMainActivity : AppCompatActivity(), ClickPresenter {
             adapter.replace(it)
         })
 
+        projectModel.toastMsg.observe(this, Observer {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+        })
         projectModel.getProject()
     }
 

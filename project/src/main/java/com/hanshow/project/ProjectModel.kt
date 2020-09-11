@@ -1,25 +1,27 @@
 package com.hanshow.project
 
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.hanshow.base.BaseViewModel
 import kotlinx.coroutines.launch
 
-class ProjectModel : ViewModel() {
+class ProjectModel : BaseViewModel() {
 
     var mLiveListProjectBean = MutableLiveData<List<DataX>>()
-    var projectRepository = ProjectRepository()
+    private var projectRepository = ProjectRepository()
 
     fun getProject() {
         viewModelScope.launch {
-            val projectBean = projectRepository.getProject(294)
-            if (projectBean.errorCode == 0) {
-                val data = projectBean.data.datas
+            val result = projectRepository.getProject(294)
 
-                mLiveListProjectBean.postValue(data)
-            } else {
-
-            }
+            result.checkResult({ projectBean, msg ->
+                mLiveListProjectBean.postValue(projectBean.datas)
+                toastMsg.postValue(msg)
+            }, {
+                toastMsg.postValue(it)
+            }, {
+                exception.postValue(Throwable(it))
+            })
         }
     }
 }
