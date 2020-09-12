@@ -1,4 +1,4 @@
-package com.hanshow.base
+package com.hanshow.bean
 
 data class ResponseResult(
         val showLoading: Boolean = false,

@@ -1,7 +1,7 @@
 package com.hanshow.project
 
 import com.hanshow.base.BaseRepository
-import com.hanshow.base.NetResult
+import com.hanshow.bean.NetResult
 import com.zz.http.RetrofitHelper
 
 class ProjectRepository : BaseRepository() {

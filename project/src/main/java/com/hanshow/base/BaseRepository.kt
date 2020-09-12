@@ -1,5 +1,7 @@
 package com.hanshow.base
 
+import com.hanshow.bean.BaseResult
+import com.hanshow.bean.NetResult
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 

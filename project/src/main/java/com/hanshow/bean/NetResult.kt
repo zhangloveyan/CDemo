@@ -1,4 +1,4 @@
-package com.hanshow.base
+package com.hanshow.bean
 
 sealed class NetResult<out T : Any> {
 

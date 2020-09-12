@@ -1,4 +1,4 @@
-package com.hanshow.base
+package com.hanshow.bean
 
 /**
  * @author Zz 张立男

@@ -2,6 +2,7 @@ package com.hanshow.base
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.hanshow.bean.NetResult
 
 open class BaseViewModel : ViewModel() {
 

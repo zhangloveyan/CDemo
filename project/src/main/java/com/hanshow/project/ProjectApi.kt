@@ -1,6 +1,6 @@
 package com.hanshow.project
 
-import com.hanshow.base.BaseResult
+import com.hanshow.bean.BaseResult
 import retrofit2.http.GET
 import retrofit2.http.Query
 
