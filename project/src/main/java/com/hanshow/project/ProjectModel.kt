@@ -12,7 +12,7 @@ class ProjectModel : BaseViewModel() {
 
     fun getProject() {
         viewModelScope.launch {
-            val result = projectRepository.getProject(294)
+            val result = projectRepository.getProject(1, 294)
 
             result.checkResult({
                 mLiveListProjectBean.postValue(it.datas)

@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hanshow.base.BaseVMActivity
@@ -13,13 +14,12 @@ import com.hanshow.project.databinding.ActivityProjectMainBinding
 
 
 @Route(path = Page.PROJECT)
-class ProjectMainActivity() : BaseVMActivity<ProjectModel, ActivityProjectMainBinding>(), ClickPresenter {
+class ProjectMainActivity : BaseVMActivity<ProjectModel, ActivityProjectMainBinding>(), ClickPresenter {
 
     private lateinit var adapter: ProjectAdapter
 
-    override fun initData() {
-        mViewModel.getProject()
-    }
+    override fun getLayoutResId(): Int = R.layout.activity_project_main
+    override fun initVM(): ProjectModel = ViewModelProvider(this).get(ProjectModel::class.java)
 
     override fun initView() {
         ARouter.getInstance().inject(this)
@@ -28,8 +28,8 @@ class ProjectMainActivity() : BaseVMActivity<ProjectModel, ActivityProjectMainBi
         initRv()
     }
 
-    override fun getLayoutResId(): Int {
-        return R.layout.activity_project_main
+    override fun initData() {
+        mViewModel.getProject()
     }
 
     override fun startObserve() {
@@ -42,11 +42,13 @@ class ProjectMainActivity() : BaseVMActivity<ProjectModel, ActivityProjectMainBi
         })
     }
 
-    override fun initVM(): ProjectModel {
-        return ViewModelProvider(this).get(ProjectModel::class.java)
-    }
-
     private fun initRv() {
+        mBinding.swProject.setOnRefreshListener {
+            SwipeRefreshLayout.OnRefreshListener {
+                Toast.makeText(this@ProjectMainActivity, "123123", Toast.LENGTH_SHORT).show()
+            }
+        }
+
         adapter = ProjectAdapter(this)
         mBinding.rvProject.adapter = adapter
         mBinding.rvProject.layoutManager = LinearLayoutManager(this)

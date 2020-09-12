@@ -6,12 +6,13 @@ import com.zz.http.RetrofitHelper
 
 class ProjectRepository : BaseRepository() {
 
-    suspend fun getProject(cid: Int): NetResult<ProjectBean> {
-        return callRequest(call = { requestProject(cid) })
+    suspend fun getProject(page: Int, cid: Int): NetResult<ProjectBean> {
+        return callRequest(call = { requestProject(page, cid) })
     }
 
     private suspend fun requestProject(
+            page: Int,
             cid: Int): NetResult<ProjectBean> {
-        return execRequest(RetrofitHelper.getApi(ProjectApi::class.java).getProject(cid))
+        return execRequest(RetrofitHelper.getApi(ProjectApi::class.java).getProject(page, cid))
     }
 }
