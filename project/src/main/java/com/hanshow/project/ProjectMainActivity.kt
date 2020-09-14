@@ -5,7 +5,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
 import com.hanshow.base.BaseVMActivity
@@ -29,7 +29,7 @@ class ProjectMainActivity : BaseVMActivity<ProjectModel, ActivityProjectMainBind
     }
 
     override fun initData() {
-        mViewModel.getProject()
+        mViewModel.getProject(1)
     }
 
     override fun startObserve() {
@@ -40,18 +40,19 @@ class ProjectMainActivity : BaseVMActivity<ProjectModel, ActivityProjectMainBind
         mViewModel.toastMsg.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         })
+
+        mViewModel.refreshComplete.observe(this, Observer {
+            mBinding.swProject.isRefreshing = !it
+        })
     }
 
     private fun initRv() {
-        mBinding.swProject.setOnRefreshListener {
-            SwipeRefreshLayout.OnRefreshListener {
-                Toast.makeText(this@ProjectMainActivity, "123123", Toast.LENGTH_SHORT).show()
-            }
-        }
 
         adapter = ProjectAdapter(this)
+        val manager = LinearLayoutManager(this)
+
         mBinding.rvProject.adapter = adapter
-        mBinding.rvProject.layoutManager = LinearLayoutManager(this)
+        mBinding.rvProject.layoutManager = manager
 
         adapter.mListener = object : RecyclerClickListener<DataX> {
             override fun onClick(bean: DataX, position: Int) {
@@ -61,6 +62,18 @@ class ProjectMainActivity : BaseVMActivity<ProjectModel, ActivityProjectMainBind
             override fun onLongClick(bean: DataX, position: Int) {
             }
         }
+
+        mBinding.swProject.setOnRefreshListener {
+            mViewModel.getProject(1)
+        }
+
+        mBinding.rvProject.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE && manager.findLastVisibleItemPosition() == adapter.itemCount - 1) {
+                    mViewModel.getProject(-1)
+                }
+            }
+        })
     }
 
     override fun onClick(v: View) {

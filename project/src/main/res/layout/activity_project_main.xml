@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/rv_project_userName"
+            android:id="@+id/tv_project_userName"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:gravity="center"
@@ -43,19 +43,19 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/line"
-            app:layout_constraintTop_toBottomOf="@+id/rv_project_userName" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_project_userName" />
 
         <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:id="@+id/sw_project"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view_1">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_project"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="5dp" />
+                android:layout_height="wrap_content" />
         </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
