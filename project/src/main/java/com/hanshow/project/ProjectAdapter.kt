@@ -42,6 +42,11 @@ class ProjectAdapter(context: Context) : RecyclerView.Adapter<ProjectAdapter.Vie
         notifyDataSetChanged()
     }
 
+    fun add(list: List<DataX>) {
+        mDataX.addAll(list)
+        notifyItemRangeInserted(mDataX.size - list.size, list.size)
+    }
+
     inner class ViewHolder(itemView: View, binding: LayoutItemProjectBinding) : RecyclerView.ViewHolder(itemView) {
         internal val mBinding = binding
     }

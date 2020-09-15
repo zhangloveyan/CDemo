@@ -29,12 +29,16 @@ class ProjectMainActivity : BaseVMActivity<ProjectModel, ActivityProjectMainBind
     }
 
     override fun initData() {
-        mViewModel.getProject(1)
+        mViewModel.getProject(true)
     }
 
     override fun startObserve() {
         mViewModel.mLiveListProjectBean.observe(this, Observer {
-            adapter.replace(it)
+            if (it.isRefresh) {
+                adapter.replace(it.list)
+            } else {
+                adapter.add(it.list)
+            }
         })
 
         mViewModel.toastMsg.observe(this, Observer {
@@ -64,13 +68,13 @@ class ProjectMainActivity : BaseVMActivity<ProjectModel, ActivityProjectMainBind
         }
 
         mBinding.swProject.setOnRefreshListener {
-            mViewModel.getProject(1)
+            mViewModel.getProject(true)
         }
 
         mBinding.rvProject.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 if (newState == RecyclerView.SCROLL_STATE_IDLE && manager.findLastVisibleItemPosition() == adapter.itemCount - 1) {
-                    mViewModel.getProject(-1)
+                    mViewModel.getProject(false)
                 }
             }
         })

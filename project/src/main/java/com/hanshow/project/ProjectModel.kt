@@ -4,21 +4,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.hanshow.base.BaseViewModel
 import kotlinx.coroutines.launch
-import java.util.*
 
 class ProjectModel : BaseViewModel() {
 
-    var mLiveListProjectBean = MutableLiveData<List<DataX>>()
+    var mLiveListProjectBean = MutableLiveData<DataList<DataX>>()
     private var projectRepository = ProjectRepository()
     private val total = 4
     var currentPage = 1
-    private var currentList = ArrayList<DataX>()
 
-    fun getProject(page: Int) {
+    fun getProject(isRefresh: Boolean) {
 
-        if (page == 1) {
+        if (isRefresh) {
             currentPage = 1
-            currentList.clear()
         }
 
         if (currentPage <= total) {
@@ -27,11 +24,9 @@ class ProjectModel : BaseViewModel() {
 
                 result.checkResult({
                     currentPage++
-                    currentList.addAll(it.datas)
 
-                    mLiveListProjectBean.postValue(currentList)
+                    mLiveListProjectBean.postValue(DataList(isRefresh, it.datas))
                     refreshComplete.postValue(true)
-
                 }, {
                     toastMsg.postValue(it)
                 }, {

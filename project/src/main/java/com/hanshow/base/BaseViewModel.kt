@@ -9,21 +9,12 @@ open class BaseViewModel : ViewModel() {
     val exception: MutableLiveData<Throwable> = MutableLiveData()
     val toastMsg: MutableLiveData<String> = MutableLiveData()
     val needLogin: MutableLiveData<Boolean> = MutableLiveData()
+
     /**
      * 上拉刷新是否完成
      */
     val refreshComplete: MutableLiveData<Boolean> = MutableLiveData()
 
-    open class UiState(
-            /**
-             * 加载框
-             */
-            val showLoading: Boolean = false,
-            /**
-             * 无数据
-             */
-            val showNull: Boolean = false
-    )
 
     fun <T : Any> NetResult<T>.checkResult(success: (T) -> Unit,
                                            error: ((String) -> Unit)? = null,
@@ -40,4 +31,20 @@ open class BaseViewModel : ViewModel() {
             }
         }
     }
+
+    open class UiState(
+            /**
+             * 加载框
+             */
+            val showLoading: Boolean = false,
+            /**
+             * 无数据
+             */
+            val showNull: Boolean = false
+    )
+
+    open class DataList<T>(
+            var isRefresh: Boolean = false,
+            var list: List<T> = ArrayList()
+    )
 }
